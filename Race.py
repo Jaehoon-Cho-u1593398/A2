@@ -10,7 +10,8 @@ class Horse():
         self.win = win
 
     def move(self):
-        self.x_pos += self.speed.roll()
+        roll = self.speed.roll()
+        self.x_pos += roll
 
     def draw(self):
         self.image.draw_at_pos(self.win, self.x,self.y)

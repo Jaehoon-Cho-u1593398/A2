@@ -2,21 +2,21 @@ from Dice import *
 from graphics import *
 
 class Horse():
-    def __init__(self, speed,  y, image, win):
+    def __init__(self, speed,  y_pos, image, win):
         self.speed = speed
-        self.x = 30
-        self.y = y
+        self.x_pos = 0
+        self.y_pos = y_pos
         self.image = image
         self.win = win
 
     def move(self):
-        self.x += self.speed.roll()
+        self.x_pos += self.speed.roll()
 
     def draw(self):
         self.image.draw_at_pos(self.win, self.x,self.y)
 
-    def crossed_finish_line(self, x):
-        return self.x >= x
+    def crossed_finish_line(self, x_pos):
+        return self.x_pos >= x_pos
 
 def main():
     #draw canvas

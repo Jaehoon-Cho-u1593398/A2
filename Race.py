@@ -3,7 +3,7 @@ from graphics import *
 
 class Horse():
     def __init__(self, speed,  y_pos, image, win):
-        self.speed = speed
+        self.speed = Dice(speed)
         self.x_pos = 0
         self.y_pos = y_pos
         self.image = image
@@ -16,21 +16,17 @@ class Horse():
     def draw(self):
         self.image.draw_at_pos(self.win, self.x,self.y)
 
-    def crossed_finish_line(self, x_pos):
-        return self.x_pos >= x_pos
+    def crossed_finish_line(self, crossline_x_pos):
+        return self.x_pos >= crossline_x_pos
 
 def main():
     #draw canvas
     win = GraphWin('Drawing', 700, 350, autoflush=False )
-    
-    #creating dices
-    dice1 = Dice(6)
-    dice2 = Dice(6)
 
     #creating and drawing horses
-    horse1 = Horse(dice1, 250, Image(Point(100,200),'horse1.gif'),win)
+    horse1 = Horse(6, 250, Image(Point(100,200),'horse1.gif'),win)
     
-    horse2 = Horse(dice2, 75, Image(Point(0,100), 'DOOM.gif'), win)
+    horse2 = Horse(6, 75, Image(Point(0,100), 'DOOM.gif'), win)
     
     horse1.draw()
     horse2.draw()
